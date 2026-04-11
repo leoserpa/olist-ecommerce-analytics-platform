@@ -1,0 +1,15 @@
+# Core E-commerce Dashboard & ETL
+pandas
+numpy
+duckdb
+pyarrow
+streamlit
+plotly
+
+# Exploratory Analysis & ML (Notebooks)
+jupyter
+statsmodels
+patsy
+matplotlib
+seaborn
+scikit-learn

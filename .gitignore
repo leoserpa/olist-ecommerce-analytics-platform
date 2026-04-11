@@ -1,0 +1,31 @@
+# Ambientes virtuais
+.venv/
+venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Variáveis de ambiente
+.env
+*.env
+
+# Dados Processados (Analytics Lake)
+data/relatorio_qualidade.html
+
+# Dados Brutos (Raw Lake)
+# data/raw/
+
+# Documentos internos privados
+docs/proximos_passos.md
+
+# Logs locais
+logs/
+
+# Windows
+Thumbs.db
+desktop.ini
