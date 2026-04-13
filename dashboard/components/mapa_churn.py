@@ -86,7 +86,7 @@ def render_mapa_churn(df):
         **layout_transparente,
         title_x=0.01,
         title_y=0.98,
-        height=650, # Altura ajustada para caber os 27 estados na tela
+        height=600, # Altura padronizada com demais gráficos do Diagnóstico
         showlegend=False,
         margin=dict(l=10, r=160, t=100, b=80),
         bargap=0.1

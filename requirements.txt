@@ -13,3 +13,6 @@ patsy
 matplotlib
 seaborn
 scikit-learn
+xgboost
+category-encoders
+joblib
