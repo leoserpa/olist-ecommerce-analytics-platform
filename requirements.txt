@@ -1,10 +1,10 @@
 # Core E-commerce Dashboard & ETL
-pandas
-numpy
+pandas==2.3.2
+numpy==2.3.2
 duckdb
 pyarrow
-streamlit
-plotly
+streamlit==1.49.1
+plotly==6.3.0
 
 # Exploratory Analysis & ML (Notebooks)
 jupyter
@@ -12,7 +12,7 @@ statsmodels
 patsy
 matplotlib
 seaborn
-scikit-learn
-xgboost
-category-encoders
-joblib
+scikit-learn==1.7.2
+xgboost==3.2.0
+category-encoders==2.9.0
+joblib==1.5.2
