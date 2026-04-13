@@ -161,7 +161,7 @@ def render_ai_diagnostics():
                 tickfont=dict(size=12, color='white')
             )
 
-            st.plotly_chart(fig_imp, use_container_width=True)
+            st.plotly_chart(fig_imp, width="stretch")
             mostrar_insight_card("ri-lightbulb-line", "O Principal Motivo da Insatisfação: O Atraso na Entrega", "Nossa análise preditiva processou milhares de pedidos e confirmou: o que mais irrita o cliente não é o preço, mas o descumprimento do prazo prometido. O impacto do atraso é 2,5x maior que qualquer outro fator. Dica: Cumprir a data combinada é o caminho mais curto para evitar avaliações negativas.")
 
         with col_graph2:
@@ -204,7 +204,7 @@ def render_ai_diagnostics():
             fig_cm.update_xaxes(side="bottom", showgrid=False, showline=False, zeroline=False, ticks="", tickfont=dict(size=12))
             fig_cm.update_yaxes(autorange="reversed", showgrid=False, showline=False, zeroline=False, ticks="", tickfont=dict(size=12))
 
-            st.plotly_chart(fig_cm, use_container_width=True)
+            st.plotly_chart(fig_cm, width="stretch")
             mostrar_insight_card("ri-shield-check-line", "Como o Modelo Preditivo ajuda a Antecipar Problemas?", f"O sistema consegue 'adivinhar' corretamente {metrics['detrator_recall']:.1%} dos clientes que teriam uma experiência ruim antes mesmo de eles reclamarem. Isso nos permite agir de forma preventiva para tentar reverter a situação e não deixar nenhuma insatisfação passar despercebida.")
 
     with menu_ia[1]:
@@ -255,7 +255,7 @@ def render_ai_diagnostics():
             
             st.markdown("<br>", unsafe_allow_html=True)
             # Botão de Predição
-            if st.button("🔮 Calcular Probabilidade de Detrator", use_container_width=True):
+            if st.button("🔮 Calcular Probabilidade de Detrator", width="stretch"):
                 # Converter de volta para os nomes originais que o modelo conhece
                 categoria_orig = cat_map[categoria_pt]
                 pagamento_orig = pay_map[pagamento_pt]

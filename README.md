@@ -1,5 +1,5 @@
 # 📊 Olist E-commerce Analytics & Diagnostics
-**Versão:** `v1.2.0` | **Status:** `Produção`
+**Versão:** `v1.3.0` | **Status:** `Produção`
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io)
