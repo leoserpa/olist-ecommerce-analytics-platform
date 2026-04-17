@@ -1,0 +1,38 @@
+{
+    "algorithm": "K-Means",
+    "n_clusters": 5,
+    "silhouette_score": 0.35740003714786195,
+    "timestamp": "2026-04-16 18:24:25",
+    "cluster_profiles": {
+        "0": {
+            "Recency": 281.0437728875047,
+            "Frequency": 1.0,
+            "Monetary": 52.42421027413669,
+            "Customer_Count": 29219
+        },
+        "1": {
+            "Recency": 291.2060747397759,
+            "Frequency": 1.0,
+            "Monetary": 143.10990330470395,
+            "Customer_Count": 35162
+        },
+        "2": {
+            "Recency": 221.8741767764298,
+            "Frequency": 2.114038128249567,
+            "Monetary": 308.43779896013865,
+            "Customer_Count": 2885
+        },
+        "3": {
+            "Recency": 41.38057274060846,
+            "Frequency": 1.0,
+            "Monetary": 124.10322660883985,
+            "Customer_Count": 15679
+        },
+        "4": {
+            "Recency": 244.34344861988694,
+            "Frequency": 1.0,
+            "Monetary": 526.6221632856667,
+            "Customer_Count": 12028
+        }
+    }
+}

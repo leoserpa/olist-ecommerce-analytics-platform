@@ -1,34 +1,35 @@
-# 📊 Olist E-commerce Analytics & Diagnostics
-**Versão:** `v1.3.0` | **Status:** `Produção`
+# 📊 Dashboard Analítico Olist (E-Commerce Analysis)
+**Versão:** `v2.0.0` | **Status:** `Mastered`
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine_Learning-orange)](https://scikit-learn.org/)
-[![XGBoost](https://img.shields.io/badge/XGBoost-Gradient_Boosting-green)](https://xgboost.ai/)
 [![DuckDB](https://img.shields.io/badge/DuckDB-Analytics-yellow)](https://duckdb.org/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-Machine_Learning-green)](https://xgboost.ai/)
+[![Segmentation](https://img.shields.io/badge/RFM-Segmentation-orange)](https://scikit-learn.org/)
 
-> **Uma plataforma analítica End-to-End desenhada para C-Levels e decisões estratégicas.**
-> Este projeto investiga a operação da Olist (2016-2018), saindo da análise descritiva clássica para um diagnóstico acionável focado em **Perdas Financeiras**, **Eficiência Operacional** e **Inteligência Preditiva**.
-
----
-
-## 🎯 Arquitetura de Dados & Inteligência
-O fluxo foge de protótipos lentos e aposta em engenharia robusta e performance de ponta:
-
-1.  **ETL Modular (`etl.py`)**: Utiliza `DuckDB` (banco analítico in-memory) associado ao Pandas para tratar ~100k pedidos brutais de múltiplos CSVs, persistindo em `Parquet` para máxima performance.
-2.  **Hub Preditivo (Machine Learning)**: Pipeline treinado com `XGBoost` para prever riscos de insatisfação em tempo real. O modelo analisa 11 variáveis críticas, com foco no impacto exponencial do atraso (SLA).
-3.  **App & UX (`dashboard/`)**: Construído com Streamlit sob o padrão **Senior Executive Design**:
-    *   **Data-Ink Ratio Máximo**: Gráficos Plotly limpos, sem ruído visual e com cores semânticas.
-    *   **Performance Zero-Latency**: Implementação de `@st.cache_resource` para modelos e `@st.fragment` para isolamento de simulações, eliminando reruns globais e piscadas de tela.
-    *   **Actionable Insights**: Cards de tradução técnica para negócio, integrados diretamente em cada visualização.
+> **Uma plataforma analítica End-to-End para portfólio sênior, focada em Business Intelligence e Inteligência Preditiva.**
+> Este projeto investiga a operação da Olist (2016-2018), processando mais de **113k pedidos** para entregar um diagnóstico acionável sobre faturamento, logística e comportamento do cliente.
 
 ---
 
-## 💡 Principais Descobertas (Highlights Executivos)
+## 🎯 Arquitetura de Inteligência (v2.0.0)
+O projeto foi totalmente reorganizado para seguir padrões de engenharia de software e ciência de dados profissional:
 
-*   **Dominância Logística (SLA)**: O descumprimento do prazo prometido impacta a percepção do cliente **2,5x mais** do que o tempo total de transporte. O SLA é a variável mestre do NPS.
-*   **Qualidade do Atendimento**: A categoria *Cama, Mesa e Banho* isola-se negativamente com o maior volume massivo de detratores, exigindo auditoria imediata de fornecedores.
-*   **Risco Transacional (CRM)**: Taxa de repetição de compra de míseros ~3%. O modelo preditivo ajuda a identificar esses 97% de risco e sugere ações de *Customer Recovery* proativas.
+1.  **Engenharia de Dados (`src/etl.py`)**: Pipeline automatizado que utiliza `DuckDB` e `Fast Parquet` para processar dados brutos em segundos, gerando relatórios de qualidade automáticos em `reports/`.
+2.  **Segmentação RFM (`src/train_rfm_clustering.py`)**: Implementação de clustering **K-Means** para agrupar clientes por Recência, Frequência e Valor Monetário, mapeando personas estratégicas para CRM (Ex: Clientes "Hibernando" vs "Alto Valor").
+3.  **Motor Preditivo (`src/train_satisfaction.py`)**: Modelo **XGBoost** que prevê a probabilidade de um cliente se tornar um detrator antes mesmo da entrega, analisando variáveis como atraso no SLA e peso do frete.
+4.  **UX Dashboard (`dashboard/`)**: Interface Streamlit de alta fidelidade com:
+    -   **Design System Dark Mode**: Visual premium com ícones Remix e cores semânticas.
+    -   **Performance Otimizada**: Uso de cache agressivo e fragmentos para navegação fluida.
+
+---
+
+## 💡 Highlights do Projeto
+
+*   **Visão 360°**: Da receita bruta (`R$ 13M+`) ao detalhamento regional por estado.
+*   **Diagnóstico Logístico**: Identificação de que **85% dos atrasos** concentram-se na malha de transporte e não no tempo de postagem do vendedor.
+*   **Inteligência de Clientes**: Mapeamento de capital em risco nos segmentos detritos do RFM, permitindo ações proativas de retenção.
+*   **Preparação para Produção**: Modelos persistidos em `.pkl` e estrutura pronta para deploy em nuvem.
 
 ---
 
@@ -36,26 +37,31 @@ O fluxo foge de protótipos lentos e aposta em engenharia robusta e performance 
 
 ```text
 projeto_Olist_EDA/
-├── dashboard/             # Front-end da aplicação executiva
-│   ├── main.py            # Entrypoint Streamlit (Sistema de Abas)
-│   └── components/        # Dashboards modulares (Visualizações & IA)
-├── ml/                    # Camada de Inteligência Preditiva
-│   ├── models/            # Artefatos binários do pipeline (.pkl)
-│   ├── reports/           # Métricas de performance (JSON)
-│   └── trainer/           # Scripts de treinamento e engenharia de features
-├── data/                  # Lakehouse local (Parquet)
-├── etl.py                 # Pipeline de Engenharia de Dados Core
-└── requirements.txt       # Stack unificada
+├── src/                   # Motores de Processamento (Core Logic)
+│   ├── etl.py             # Pipeline de Ingestão e Limpeza
+│   ├── train_rfm.py       # Treinamento de Clusterização RFM
+│   └── train_satisfaction.py # Treinamento de Modelo Preditivo
+├── dashboard/             # Front-end da Aplicação
+│   ├── main.py            # Entrypoint do Dashboard
+│   └── components/        # Módulos visuais independentes
+├── ml/                    # Camada de Inteligência Persistence
+│   ├── models/            # Artefatos binários (.pkl)
+│   └── reports/           # Métricas de IA (JSON)
+├── data/                  # Base de Dados (Parquet / Raw CSVs)
+├── reports/               # Relatórios de Qualidade Gerados
+├── logs/                  # Logs de execução do Sistema
+└── requirements.txt       # Dependências do Ambiente
 ```
 
 ---
 
-## 🚀 Como Executar Localmente
+## 🚀 Como Executar
 
-1. **Instalação**: `pip install -r requirements.txt`
-2. **Processar Dados**: `python etl.py`
-3. **Lançar App**: `streamlit run dashboard/main.py`
+1. **Setup**: `pip install -r requirements.txt`
+2. **Ingestão**: `python src/etl.py`
+3. **Treinamento (Opcional)**: `python src/train_rfm_clustering.py`
+4. **Dashboard**: `streamlit run dashboard/main.py`
 
 ---
 
-*Desenvolvido com foco na conexão entre Engenharia de Dados, Advanced Analytics e Business Intelligence Strategy.*
+*Desenvolvido como um case de estudo avançado unindo Engenharia de Dados, Advanced Analytics e UX Design.*

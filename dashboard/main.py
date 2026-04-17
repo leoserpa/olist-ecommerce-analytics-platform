@@ -21,6 +21,7 @@ from components.pareto_detratoras import render_pareto_detratoras
 from components.atraso_vendedor import render_atraso_vendedor
 from components.diagnostico_culpabilidade import render_diagnostico_culpabilidade
 from components.ai_diagnostics import render_ai_diagnostics
+from components.segmentacao_rfm import render_segmentacao_rfm
 from utils.ui import mostrar_insight_card
 
 # Configuração da Página
@@ -70,34 +71,37 @@ st.markdown("""
     .dash-header {
         display: flex;
         align-items: center;
-        gap: 14px;
-        padding: 20px 0 16px 0;
+        gap: 16px;
+        padding: 24px 0 20px 0;
     }
     .dash-logo {
-        width: 38px;
-        height: 38px;
+        width: 48px;
+        height: 48px;
         background-color: #4A9BD9;
-        border-radius: 8px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
+        font-size: 24px;
         flex-shrink: 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     .dash-title {
-        font-size: 22px !important;
+        font-size: 24px !important;
         font-weight: 700 !important;
         color: #FFFFFF !important;
         margin: 0 !important;
         padding: 0 !important;
-        line-height: 1.2;
+        line-height: 1.4 !important;
     }
     .dash-subtitle {
-        font-size: 13px !important;
+        font-size: 14px !important;
         color: #808080 !important;
         margin: 0 !important;
         padding: 0 !important;
         font-weight: 400 !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.3px;
     }
 
     /* ═══ TABS — LIMPO E DISCRETO ═══ */
@@ -232,6 +236,7 @@ st.markdown("""
         display: flex;
         align-items: center;
         gap: 16px;
+        min-height: 100px; /* Garante alinhamento vertical em linha */
         transition: transform 0.25s ease, box-shadow 0.25s ease;
         cursor: default;
     }
@@ -295,10 +300,12 @@ st.markdown("""
 # ═══════════════════════════════════════════════════════
 st.markdown("""
 <div class="dash-header">
-    <div class="dash-logo">📊</div>
+    <div class="dash-logo">
+        <i class="ri-rocket-fill" style="color: white;"></i>
+    </div>
     <div>
-        <div class="dash-title">Dashboard</div>
-        <div class="dash-subtitle">Análise Exploratória · Olist E-Commerce</div>
+        <div class="dash-title">Dashboard Analítico Olist</div>
+        <div class="dash-subtitle">Estudo de Vendas, Modelagem Preditiva e Segmentação RFM</div>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -307,7 +314,7 @@ st.markdown("""
 # ═══════════════════════════════════════════════════════
 #  ABAS PRINCIPAIS
 # ═══════════════════════════════════════════════════════
-aba1, aba2, aba3 = st.tabs(["Análise Exploratória", "Diagnóstico", "Análise Preditiva"])
+aba1, aba2, aba3, aba4 = st.tabs(["Análise Exploratória", "Diagnóstico", "Análise Preditiva", "Segmentação de Clientes"])
 
 # Aba 1: Análise Exploratória
 with aba1:
@@ -507,3 +514,9 @@ with aba2:
 with aba3:
     render_ai_diagnostics()
 
+# Aba 4: Segmentação de Clientes (RFM + K-Means)
+with aba4:
+    if not df_receita.empty:
+        render_segmentacao_rfm(df_receita)
+    else:
+        st.warning("Dados de receita não carregados.")
