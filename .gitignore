@@ -18,7 +18,7 @@ __pycache__/
 data/relatorio_qualidade.html
 
 # Dados Brutos (Raw Lake)
-data/raw/
+# data/raw/
 
 # Documentos internos privados
 docs/proximos_passos.md
