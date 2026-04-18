@@ -28,11 +28,23 @@ A solução está estruturada em quatro pilares fundamentais, cada um focado em 
     *   Uso intensivo de `@st.cache_data` e `@st.fragment` para uma experiência de usuário fluida e sem interrupções (Zero Rerun Lag).
 
 ---
+ 
+ ## 📸 Galeria do Dashboard
+ 
+ > **Dica:** Adicione suas capturas de tela na pasta `assets/` e atualize os links abaixo conforme necessário.
+ 
+ | | |
+ | :---: | :---: |
+ | ![Screenshot 1](assets/img1.png) | ![Screenshot 2](assets/img2.png) |
+ | ![Screenshot 3](assets/img3.png) | ![Screenshot 4](assets/img4.png) |
+ 
+ ---
 
 ## 📁 Estrutura do Ecossistema (Senior Standard)
 
 ```text
 projeto_Olist_EDA/
+├── assets/                  # Galeria de Screenshots e Documentação Visual
 ├── dashboard/               # Interface de Consumo Executivo
 │   ├── main.py              # Entrypoint da Aplicação (Layout & Navegação)
 │   ├── components/          # Módulos Visuais e Lógica de Abas
