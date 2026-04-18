@@ -1,5 +1,5 @@
 # 📊 Olist Intelligence Dashboard 2.1
-**Versão:** `v2.1.0` | **Status:** `Produção (Finalizado)` | **Framework:** `Senior Executive Design`
+**Versão:** `v2.1.0` | **Status:** `Produção (Finalizado)` | **Design:** `Senior Executive` | **Framework:** `Streamlit`
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white)](https://streamlit.io)
@@ -30,8 +30,6 @@ A solução está estruturada em quatro pilares fundamentais, cada um focado em 
 ---
  
  ## 📸 Galeria do Dashboard
- 
- > **Dica:** Adicione suas capturas de tela na pasta `assets/` e atualize os links abaixo conforme necessário.
  
  | | |
  | :---: | :---: |
